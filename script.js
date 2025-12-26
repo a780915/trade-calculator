@@ -1,5 +1,5 @@
 async function calculate() {
-  const res = await fetch("https://trade-calculator-api.onrender.com/calculate", {
+  const res = await fetch("https://trade-calculator-o6ls.onrender.com/calculate", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
