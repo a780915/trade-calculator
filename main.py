@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from risk_engine import calculate_trade
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -29,3 +30,11 @@ def calculate(data: TradeInput):
         "actual_loss": result["actual_loss"],
         "actual_profit": result["actual_profit"],
     }
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 先全開，確認可用後再收斂
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
